@@ -1,27 +1,29 @@
 import asyncio
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from geminimodel import GeminiTestCaseGenerator
 import json
 
-load_dotenv()
+
+API_KEY = "AIzaSyAEoBo5ur2iuS55pZIQb8D50XQI0PdXoT0"
+PRD_URL = "https://carousell.atlassian.net/wiki/spaces/UAC/pages/2741403649/PRD+Offer+to+Likers"
+FIGMA_URL = "https://www.figma.com/design/QQb1FVxgvmUN79gjavh31u/Offer-to-likers?node-id=1-8&t=Zmq4W3jlAglC1dyd-1"
+    
 
 async def test_generate_test_cases():
     # init the generator and learning system
-    api_key = "AIzaSyAEoBo5ur2iuS55pZIQb8D50XQI0PdXoT0"
-    if not api_key:
+
+    if not API_KEY:
         raise ValueError("Please set the GEMINI_API_KEY environment variable")
         
-    generator = GeminiTestCaseGenerator(api_key=api_key)
+    generator = GeminiTestCaseGenerator(api_key=API_KEY)
     
     # test URLs
-    prd_url = "https://carousell.atlassian.net/wiki/spaces/UAC/pages/2741403649/PRD+Offer+to+Likers"
-    figma_url = "https://www.figma.com/design/QQb1FVxgvmUN79gjavh31u/Offer-to-likers?node-id=1-8&t=Zmq4W3jlAglC1dyd-1"
     
     try:
         # Generate Test Cases
         print("\n=== Generate Test Cases ===\n")
-        initial_result = await generator.generate_test_cases(prd_url, figma_url)
+        initial_result = await generator.generate_test_cases(PRD_URL, FIGMA_URL)
         print("initial test cases:")
         print(initial_result["test_cases"])
 
