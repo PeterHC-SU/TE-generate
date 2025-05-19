@@ -5,9 +5,9 @@ from geminimodel import GeminiTestCaseGenerator
 import json
 
 
-API_KEY = "AIzaSyAEoBo5ur2iuS55pZIQb8D50XQI0PdXoT0"
-PRD_URL = "https://carousell.atlassian.net/wiki/spaces/UAC/pages/2741403649/PRD+Offer+to+Likers"
-FIGMA_URL = "https://www.figma.com/design/QQb1FVxgvmUN79gjavh31u/Offer-to-likers?node-id=1-8&t=Zmq4W3jlAglC1dyd-1"
+API_KEY = "YOUR_KEY"
+PRD_URL = "PRD_URL"
+FIGMA_URL = "FIGMA_URL"
     
 
 async def test_generate_test_cases():
